@@ -22,6 +22,10 @@ class VehicleController extends Controller
         $vehicle->VehiculoCodigo              = $faker->ean13();
         $vehicle->VehiculoFechaVigenciaInicio = $faker->date($format = 'Y-m-d', $max = 'now');
         $vehicle->VehiculoFechaVigenciaFin    = $faker->date($format = 'Y-m-d', $max = 'now');
+        $vehicle->VehiculoDisponibilidadVenta = $faker->randomNumber(1);
+        $vehicle->VehiculoVersion             = $faker->word();
+        $vehicle->VehiculoFlagActivo          = $faker->boolean();
+        $vehicle->FechaCreacion               = $faker->date($format = 'Y-m-d', $max = 'now');
         $vehicle->save();
 
         return response($crud->jsonSerialize(), Response::HTTP_CREATED);

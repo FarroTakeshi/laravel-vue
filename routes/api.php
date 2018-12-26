@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/vehicles', 'VehicleController@index');
+Route::get('/vehicles/create', 'VehicleController@create');
