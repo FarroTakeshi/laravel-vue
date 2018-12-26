@@ -16,29 +16,41 @@
             </h3>
           </div>
         <div class="panel-body">
-          <div class="anime-synopsis col-md-8">
+          <div class="col-md-8">
             <strong>Fecha inicio:</strong>
-              <p>{{ vehicle }}</p>
+            <p>{{ vehicle }}</p>
           </div>
-                  </div>
-                </div>
-            </div>
         </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-  let uri = '/api/vehicles';
+  //let uri = '/api/vehicles';
+  let uri = '/laravel-vue/public/api/vehicles';
   export default {
     data() {
         return {
-          posts: []
+          vehicles: []
         }
+    },
+    methods: {
+      index() {
+        window.axios.get(uri).then(({ data }) => {
+          data.forEach(vehicle => {
+            this.vehicles.push(new Vehicle(vehicle));
+          });
+        });
       },
+      create() {
+        window.axios.get('/api/vehicles/create').then(({ data }) => {
+          this.vehicles.push(new Vehicle(data));
+        });
+      },
+    },
     created() {
-      this.axios.get(uri).then(response => {
-        this.vehicles = response.data.data;
-      });
+      this.index();
     }
   }
 </script>

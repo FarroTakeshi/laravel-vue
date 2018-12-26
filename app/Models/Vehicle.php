@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Vehicle extends Model
 {
-    protected $table = 'turn_vehicle';
+    protected $table = 'tur_vehicle';
 
     public $timestamps = false;
 
@@ -20,8 +20,8 @@ class Vehicle extends Model
         'VehiculoDisponibilidadVenta',
         'VehiculoVersion',
         'VehiculoFlagActivo',
-        'FechaCreacion'
-        'FechaEdicion'
+        'FechaCreacion',
+        'FechaEdicion',
         'FechaEliminacion'
     ];
 }
